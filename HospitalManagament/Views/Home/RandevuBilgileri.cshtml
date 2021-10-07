@@ -1,0 +1,89 @@
+﻿
+@{if (Session["Admin"] == "1")
+    {
+      
+        using (Ajax.BeginForm("RandevuBilgileri", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+        {
+            <table width="40%" align="center" style="margin-top:50px">
+                <tr>
+                    <td colspan="2">
+                        <select class="select" name="Doctor" style="width:100%">
+                            <option>Seçiniz</option>
+                            @foreach (var item in ViewBag.RandevuDoctor)
+                            {
+                                <option value="@item.Doctor">
+                                    @item.Doctor
+                                </option>
+                            }
+                        </select>
+                    </td>
+
+                    <td align="left"> <input type="submit" value="Çağır" class="AcceptanceNext" style="width:100%;margin:0; margin-top:13px;height:70px" /></td>
+                </tr>
+            </table>
+
+        }
+            using (Ajax.BeginForm("RandevuBilgileri", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+            {
+                <div class="accordion accordion-flush" id="accordionFlushExample" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 50px">
+                    @{var sayac = 0; }
+                    @if(ViewBag.TumRandevularHasta!=null)
+                    {
+
+                        foreach (var i in ViewBag.TumRandevularHasta)
+                         {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-@sayac" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <table><tr><td width="300px">@i.FirstName @i.LastName</td><td>@i.Saat - @i.Tarih</td></tr></table>
+                                </button>
+                            </h2>
+                            <div id="flush-@sayac" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <table width="100%" >
+                                        <tr>
+                                            <td>@i.Doctor</td>
+                                            <td>@i.Area</td>
+                                            <td>@i.Tc</td>
+                                            <td><button name="Delete" value="@i.Id">Sil</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        sayac++;
+
+                    }
+
+
+                    
+                    
+                    }
+
+                    
+                </div>
+            }
+                if (ViewBag.DeleteMessage!=null)
+                {
+                <h2 style="text-align:center">@ViewBag.DeleteMessage</h2>
+
+                }
+
+  }
+  else
+  {
+
+        <h2>Bu Sayfaya erişim yetkiniz yok.</h2>
+                
+    }
+
+
+
+
+
+
+                }
+
+
+

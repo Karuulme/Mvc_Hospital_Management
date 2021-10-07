@@ -1,0 +1,286 @@
+﻿
+
+
+
+@{
+    if (@ViewBag.GetOne != null)
+    {
+        using (Ajax.BeginForm("Update", "Home", new { Id = ViewBag.GetOne.Id }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "ayrinti_bolumu" }))
+
+        {
+            <ul class="Hastalar">
+                <li>
+
+                    <table class="Tablo">
+                        <tr>
+                            <td width="10">
+                                <img src="~/Image/@ViewBag.GetOne.GenderLink" />
+                            </td>
+                            <td width="30%">
+                                <table style="margin-left:30px;">
+                                    <tr>
+                                        <td class="Nameoff">Adı Soyadı</td>
+                                        <td class="Nameon">@ViewBag.GetOne.FirstName @ViewBag.GetOne.LastName</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="Nameoff">Doktoru</td>
+                                        <td class="Nameon">@ViewBag.GetOne.SelectDoctor</td>
+                                    </tr>
+
+
+                                </table>
+                            </td>
+                            <td align="center">
+                                @if (@ViewBag.GetOne.Status == "ACİL")
+                                {
+                                    <div class="alert alert-danger" role="alert" style="text-align:center;font-size:1.2em;width:50%;">
+                                        ACİL
+                                    </div>
+                                }
+                                @if (@ViewBag.GetOne.Status == "KRITİK")
+                                {
+                                    <div class="alert alert-warning" role="alert" style="text-align: center; font-size: 1.2em; width: 50%;">
+                                        KRITİK
+                                    </div>
+                                }
+                                @if (@ViewBag.GetOne.Status == "STABİL")
+                                {
+                                    <div class="alert alert-success" role="alert" style="text-align: center; font-size: 1.2em; width: 50%;">
+                                        STABİL
+                                    </div>
+
+                                }
+
+
+                            </td>
+
+                        </tr>
+                    </table>
+                    <div class="Users_Table">
+                        <table width="90%" align="center">
+                            <tr>
+                                <td><input type="text" id="searchKey" placeholder="Adı" class="searchKeyVisitor" name="FirstName" value="@ViewBag.GetOne.FirstName" /></td>
+                                <td align="right"><input type="text" id="searchKey" placeholder="Soyadı" class="searchKeyVisitor" name="LastName" value="@ViewBag.GetOne.LastName" /></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="searchKey" placeholder="Tc Numarası" class="searchKeyVisitor" name="Tc" value="@ViewBag.GetOne.Tc" /></td>
+                                <td align="right"><input type="text" id="searchKey" placeholder="Telefon Numarası" class="searchKeyVisitor" name="Tel" value="@ViewBag.GetOne.Tel" /></td>
+                            </tr>
+                            <tr><td colspan="2"><input type="text" id="searchKey" name="Proglem" placeholder="Hasta Şikayeti" style="width: 100%; box-shadow: 0 .5rem 1rem rgba(0,0,0,.30) !important;text-align:center " class="searchKeyVisitor" value="@ViewBag.GetOne.Proglem" /></td></tr>
+                            <tr>
+
+                                <td colspan="2">
+                                    <table width="100%" style="margin-top:50px;">
+                                        <tr>
+                                            <td>
+                                                <select class="select" name="Area">
+                                                    <option> @ViewBag.GetOne.Area</option>
+
+                                                    @{foreach (var item in ViewBag.SelectArea)
+                                                        {
+
+                                                            if (item.Area != ViewBag.GetOne.Area)
+                                                            {
+                                                                <option value=" @item.Area">
+
+                                                                    @item.Area
+                                                                </option>
+                                                            }
+
+
+
+
+                                                        }
+
+
+                                                    }
+
+
+
+
+                                                </select>
+
+                                            </td>
+                                            <td>
+                                                <select class="select" name="SelectDoctor">
+                                                    @foreach (var item in ViewBag.GetArea)
+                                                    {
+                                                        <option value="@item.Doctor">
+                                                            @item.Doctor
+                                                        </option>
+                                                    }
+
+
+
+
+                                                </select>
+
+                                            </td>
+                                            <td width="33%">
+                                                <div class="radio-group">
+
+                                                    @if (@ViewBag.GetOne.Status == "STABİL")
+                                                    {
+                                                        <input type="radio" id="option-one" name="Status" value="0" checked />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="radio" id="option-one" name="Status" value="0" />
+                                                    }
+
+
+
+                                                    <label for="option-one">Stabil</label>
+
+
+                                                    @if (@ViewBag.GetOne.Status == "KRITİK")
+                                                    {
+                                                        <input type="radio" id="option-two" name="Status" value="1" checked />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="radio" id="option-two" name="Status" value="1">
+                                                    }
+
+
+
+                                                    <label for="option-two">Kritik</label>
+
+                                                    @if (@ViewBag.GetOne.Status == "ACİL")
+                                                    {
+                                                        <input type="radio" id="option-three" name="Status" value="2" checked />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="radio" id="option-three" name="Status" value="2">
+                                                    }
+
+
+
+
+                                                    <label for="option-three">Acil</label>
+
+
+
+
+
+
+                                                </div>
+
+
+
+
+                                            </td>
+
+
+
+
+                                        </tr>
+
+
+
+
+                                    </table>
+
+
+
+
+
+
+                                </td>
+
+
+
+                            </tr>
+
+
+                            <tr>
+                                <td>
+
+
+
+                                    <button class="updatebutton" style="width:200px" name="_Update" >
+                                        <div class="DeleteView">
+                                            Güncelle<i style="margin-top:9px;margin-left:15px" class="fa fa-plane" aria-hidden="true"></i>
+                                        </div>
+                                    </button>
+                                    <div id="sonuc"> </div>
+
+                                </td>
+
+
+
+                                <td align="right">
+                                    <button class="DeleteButton" name="_Delete">
+                                        <div id="DeleteLogo"><i class="fa fa-trash" aria-hidden="true"></i>Sil</div>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </li>
+            </ul>
+        }
+
+
+       }
+       else if (ViewBag.Delete=="1")
+       {
+
+        <h2 style="text-align:center;color:red"> Başarıyla Silindi</h2>
+       }
+
+       else
+       {
+
+        <h1 style="text-align:center;color:red" > YANLIŞ GİDEN BİR VAR ŞEY Mİ ?</h1>
+
+    }
+
+
+    <div id="AlertDelete" >
+
+      
+    </div>
+
+
+
+}
+<script>
+
+    var uzunluk = parseInt($(".Hastalar").css("width"));
+    $(".Users_Table").css("width", uzunluk);
+
+    $(".DeleteView2").click(function () {
+
+
+    });
+    $(document).ready(function () {
+        $("#TestDeneme").click(function () {
+
+      
+        })
+       
+
+
+
+    })
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

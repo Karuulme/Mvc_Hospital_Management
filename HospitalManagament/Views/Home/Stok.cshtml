@@ -1,0 +1,124 @@
+﻿
+@{if (Session["Admin"] == "1")
+    {
+
+        <h2 style="text-align:center;margin:25px;">Hastane İlaçları </h2>
+        using (Ajax.BeginForm("Stok", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+        {
+            <table align="center" width="90%">
+                <tr>
+                    <td><div class="StokBaslik">T.M.Y. KODU </div></td>
+                    <td><div class="StokBaslik">ECZANE KODU </div></td>
+                    <td><div class="StokBaslik">İLAÇ ADI </div></td>
+                    <td><div class="StokBaslik">BİRİMİ </div></td>
+                    <td><div class="StokBaslik">MİKTARI </div></td>
+                    <td><div class="StokBaslik">ADET </div></td>
+                </tr>
+                <tr>
+                    <td><input type="text" placeholder="T.M.Y. KODU" name="TKMYKodu" class="AcceptanceForm" style="width:100%" /></td>
+                    <td><input type="text" placeholder="ECZANE KOD" name="EKodu" class="AcceptanceForm" style="width:100%" /></td>
+                    <td><input type="text" placeholder="İLAÇ ADI" name="IlacAdi" class="AcceptanceForm" style="width:100%" /></td>
+                    <td>
+                        <select class="select" name="Birimi" style="width:100%;margin:0px">
+                            <option>Birimi</option>
+                            <option value="Adet">Adet</option>
+                            <option value="Litre">Litre</option>
+                            <option value="Gr">Gr</option>
+                        </select>
+                    </td>
+                    <td><input type="text" placeholder="MİKTARI" name="Miktar" class="AcceptanceForm" /></td>
+                    <td><input type="text" placeholder="ADET" name="Adet" class="AcceptanceForm" /></td>
+
+                </tr>
+                @if (ViewBag.KayitKontrol1 != null)
+                {
+                    if (ViewBag.KayitKontrol1 == true)
+                    {
+                        <tr><td colspan="6"><h3>Kayıt Eklendi</h3></td></tr>
+
+                    }
+                    else
+                    {
+                        <tr><td colspan="6"><h3>Kayıt Güncellendi</h3></td></tr>
+
+                    }
+
+                }
+                @if (ViewBag.KayitErorMessage1 != null)
+                {
+                    <tr><td colspan="6"><h3>@ViewBag.KayitErorMessage1</h3></td></tr>
+
+                }
+
+
+                <tr>
+                    <td colspan="6" align="center"><input type="submit" name="ilac" value="Ekle" class="AcceptanceNext" style="width:40%" /></td>
+
+                </tr>
+
+
+            </table>
+        }
+
+        <h2 style="text-align:center;margin:200px;">ÖZEL HASTANELERDE KLİNİK VE LABORATUARLARINDA BULUNDURULACAK ARAÇ VE GEREÇLERİN TÜRLERİ VE ASGARİ MİKTARLARI</h2>
+        using (Ajax.BeginForm("Stok", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+        {
+            <table align="center" width="90%" style="margin-bottom:200px">
+                <tr>
+                    <td><div class="StokBaslik">TÜRÜ </div></td>
+                    <td><div class="StokBaslik">KULLANIM ALANI</div></td>
+                    <td><div class="StokBaslik">ADET</div></td>
+
+
+
+
+                </tr>
+                <tr>
+
+                    <td><input type="text" placeholder="TÜRÜ" name="Turu" class="AcceptanceForm" style="width:100%" /></td>
+                    <td><input type="text" placeholder="KULLANIM ALANI" name="KullanımAlani" class="AcceptanceForm" style="width:100%" /></td>
+                    <td><input type="text" placeholder="ADET" name="Adet" class="AcceptanceForm" /></td>
+
+                </tr>
+                @if (ViewBag.KayitKontrol2 != null)
+                {
+                    if (ViewBag.KayitKontrol2 == true)
+                    {
+                        <tr><td colspan="4"><h3>Kayıt Güncellendi</h3></td></tr>
+
+
+                    }
+                    else
+                    {
+                        <tr><td colspan="4"><h3>Kayıt Eklendi</h3></td></tr>
+
+                    }
+
+                }
+                @if (ViewBag.KayitErorMessage2 != null)
+                {
+                    <tr><td colspan="6"><h3>@ViewBag.KayitErorMessage2</h3></td></tr>
+                }
+                <tr>
+                    <td colspan="4" align="center"><input type="submit" name="AracGerec" value="Ekle" class="AcceptanceNext" style="width:20%" /></td>
+                </tr>
+
+
+
+            </table>
+        }
+    }
+    else
+    {
+
+
+        <script>
+
+            window.location.href = "https://localhost:44398/Home/Randevu";
+
+
+        </script>
+    }
+
+}
+

@@ -1,0 +1,291 @@
+﻿
+@{if (Session["Admin"] == "1")
+    {
+
+
+
+
+        <h2 class="basliklar" style="text-align:center">Hastalar</h2>
+        <div class="Bilgi">
+
+            <div id="UIDuzeni">
+                <div class="bolum">
+                    <ul class="Hastalar">
+                        <input type="text" id="searchKey" placeholder="Hastalarda Ara" class="searchKey" name="SearchKey" />
+                        <div id="SearchReturn">
+
+                            @{
+                                if (@ViewBag.PatientRegistrationProduct != null)
+
+                                {@ViewBag.PatientRegistrationProduct.Tc}
+
+                            else
+                            {
+                                foreach (var item in @ViewBag.listte)
+                                {
+
+
+                                <li>
+                                    <table class="Tablo">
+                                        <tr>
+                                            <td width="10">
+                                                <img src="~/Image/@item.GenderLink" />
+                                            </td>
+                                            <td width="40%">
+                                                <table style="margin-left:30px;">
+                                                    <tr>
+                                                        <td class="Nameoff">Adı Soyadı</td>
+                                                        <td class="Nameon">@item.FirstName @item.LastName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="Nameoff">Doktoru</td>
+                                                        <td class="Nameon">@item.SelectDoctor</td>
+                                                    </tr>
+
+
+                                                </table>
+                                            </td>
+                                            <td width="25%">
+                                                @if (@item.Status == "ACİL")
+                                                {
+                                                    <div class="alert alert-danger" role="alert" style="text-align:center;font-size:1.2em">
+                                                        ACİL
+                                                    </div>
+                                                }
+                                                @if (@item.Status == "KRITİK")
+                                                {
+                                                    <div class="alert alert-warning" role="alert" style="text-align:center;font-size:1.2em">
+                                                        KRITİK
+                                                    </div>
+                                                }
+                                                @if (@item.Status == "STABİL")
+                                                {
+                                                    <div class="alert alert-success" role="alert" style="text-align:center;font-size:1.2em">
+                                                        STABİL
+                                                    </div>
+
+                                                }
+
+
+                                            </td>
+                                            <td class="Yonelme" align="right">
+                                                <div style="width:100%;">
+                                                    <div style="font-size: 1.2em; color: gray; font-weight: bold; width:20px; margin-right: 25px; line-height:0.8; height: 29px;" id="Ayrinti2323">
+                                                        @Ajax.ActionLink(" ", "Visitor", "Home", new { Key = item.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "ayrinti_bolumu" })
+                                                    </div>
+                                                </div>
+
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+
+
+
+                                </li>
+
+
+                            }
+
+
+                        }
+
+
+
+
+
+}
+
+                    </div>
+
+                    </ul>
+                </div>
+                <i class="bi bi-caret-right-fill"></i>
+                <div class="bolum">
+                    <i class="fa fa-backward" aria-hidden="true" id="Back" style="font-size:2em;cursor:pointer"></i>
+                    <div id="ayrinti_bolumu">
+                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            </div><div class="HPersonel">
+                      <ul style="height:900px;list-style-type:none">
+                         
+                          <li class="li">
+                              <ul>
+
+
+
+                            
+                              <h1 basliklar>Doktorlar</h1>
+                              @{foreach (var item in ViewBag.Doctor)
+
+                                  {
+                                        <li>@item.Doctor</li>
+                                  }
+                              }
+
+                         
+                                 
+
+                              </ul>
+                              </li>
+                              <li class="li">
+                                  <h1 basliklar>Hemşireler</h1>
+                                  <ul>
+                                      @{foreach (var item in ViewBag.Nurse)
+
+                                          {
+                                              <li>@item.FirstName @item.LastName</li>
+                                          }
+                                      }
+                                  </ul>
+                              </li>
+                              <li class="li">
+                                  <h1 basliklar>Güvenlik Personelleri</h1>
+                                  <ul>
+                                    
+
+                                  </ul>
+                              </li>
+                          </ul>
+
+
+
+            </div>
+
+
+
+
+
+            <script>
+
+        $(document).ready(function () {
+            $("#SearchReturn a").html('<i class="fa fa-angle-right" aria-hidden="true" style="font-size:1.1em;line-height:0;"></i>');
+
+            var uzunluk = parseInt($(".Bilgi").css("width"));
+            var uzunluk2 = (uzunluk * 2);
+
+            $("#UIDuzeni").css("width", uzunluk2);
+
+
+            $("#Back").click(function () {
+
+                $("#UIDuzeni").animate({ "margin-left": 0 });
+
+                setTimeout(Temizleme,500);
+
+            });
+            function Temizleme() {
+
+                $("#ayrinti_bolumu").html('<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>');
+
+
+            }
+
+
+
+
+            $("#SearchReturn").on("click","#Ayrinti2323", function () {
+                $("#UIDuzeni").animate({ "margin-left": -uzunluk })
+            })
+
+
+
+
+            $("#searchKey").keyup(function () {
+
+            var isim = $("#searchKey").val();
+
+                     $.ajax({
+                        url: '@Url.Action("SearchKey","Home")',
+                        type: 'POST',
+                         dataType: 'Json',
+                         data: { key: isim },
+                         success: function (data) {
+                             console.log(data);
+                             if (data != null) {
+                                // console.log(data);
+                                 html = '';
+                                 $.each(data, function (key, value) {
+
+                                     html += '<li><table class="Tablo"><tr><td width="10"><img src="/Image/' + value["GenderLink"] + '" /></td><td width="40%">';
+                                     html +='<table style="margin-left:30px;"><tr><td class="Nameoff">Adı Soyadı</td><td class="Nameon">' + value["FirstName"] +" "+ value["LastName"] + '</td></tr><tr><td class="Nameoff">Doktoru</td><td class="Nameon">' + value["SelectDoctor"] + '  </td></tr></table ></td >';
+                                     if (value["Status"] == "ACİL") {
+                                         html += '<td width="25%">';
+                                         html += '<div class="alert alert-danger" role="alert" style="text-align:center;font-size:1.2em">ACİL</div >';
+
+                                         html += '</td>';
+                                     }
+                                     if (value["Status"] == "KRITİK") {
+                                         html += '<td width="25%">';
+                                         html += '<div class="alert alert-warning" role="alert" style="text-align:center;font-size:1.2em">KRITİK</div >';
+                                         html += '</td>';
+                                     }
+                                     if (value["Status"] == "STABİL") {
+                                         html += '<td width="25%">';
+                                         html += '<div class="alert alert-success" role="alert" style="text-align:center;font-size:1.2em">STABİL</div >';
+                                         html += '</td>';
+                                     }
+                                     html += '<td class="Yonelme" align="right">';
+                                     html += '<div style="width:100%;"><div style="font-size:1.2em;color:gray;font-weight:bold;margin-right:25px;width:50px" id="Ayrinti2323">';
+                                     html += '<a data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#ayrinti_bolumu" href="/Home/Visitor?Key=' + value["Id"] +'"><i class="fa fa-angle-right" aria-hidden="true" style="font-size:1.1em;"></i></a>';
+
+
+
+                                     html+='</tr ></table ></li > ';
+
+
+
+                                 })
+
+
+                                 $("#SearchReturn").html(html);
+
+                             }
+
+                               }
+
+
+
+                    })
+
+                })
+
+            })
+
+
+
+            </script>
+
+
+
+
+
+
+
+
+
+
+        }
+        else
+        {
+
+
+        <script>
+
+            window.location.href = "https://localhost:44398/Home/Randevu";
+
+
+        </script>
+        }
+
+}

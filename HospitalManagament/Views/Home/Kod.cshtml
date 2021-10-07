@@ -1,0 +1,39 @@
+﻿@{if (Session["Admin"] == "1")
+    {         <table width="80%" align="center">
+            <tr>
+                <td align="center">
+                    @{
+                        using (Html.BeginForm(null, null, FormMethod.Get, new { id = "contact-form", action = "" }))
+                        {
+                            <input type="submit" style="width:50%;" name="Key" value="KOD ÜRET" class="AcceptanceNext" />
+                        }
+                    }
+                </td>
+            </tr>
+
+            @if (ViewBag.KOD != null)
+            {
+                <tr><td align="center"><div style="font-size: 2em; padding: 10px; margin-top: 102px;">OLUŞTURULAN KOD</div> <div style="font-size: 1.6em; padding: 11px; color: #a2a2a2;"><input id="KodMetni" style="text-align:center;color:grey;border:0px" readonly="yes" type="text" value="@ViewBag.KOD"></div><div style="padding:5px;cursor:pointer" id="CopyDiv"><i class="fa fa-clone" onclick="kopyala()" aria-hidden="true" style="padding:10px"></i>KOPYALA</div></td></tr>
+            }
+        </table>
+
+        <script>
+            $(document).ready(function () {
+                $("#CopyDiv").click(function () {
+                    var copyText = document.getElementById("KodMetni");
+                    copyText.select();
+                    document.execCommand("copy");
+                })
+            })
+
+
+
+        </script>
+       }
+     else
+     {
+   <h2>Böyle bir sayfa mevcut değil</h2>
+     }
+
+
+ }

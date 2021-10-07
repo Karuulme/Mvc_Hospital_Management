@@ -1,0 +1,57 @@
+﻿
+@if (ViewBag.ilaclar.Count>0)
+{
+    using (Ajax.BeginForm("StokTakip", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+    {
+        <table width="100%" align="center">
+            <tr>
+                <td><div class="StokBaslik">T.M.Y. KODU </div></td>
+                <td><div class="StokBaslik">ECZANE KODU </div></td>
+                <td colspan="2"><div class="StokBaslik">İLAÇ ADI </div></td>
+                <td><div class="StokBaslik">BİRİMİ </div></td>
+                <td><div class="StokBaslik">MİKTARI </div></td>
+                <td><div class="StokBaslik">ADET </div></td>
+            </tr>
+            @foreach (var item in ViewBag.ilaclar)
+            {
+                <tr>
+                    <td>@item.TMYCode</td>
+                    <td>@item.PharmacyCode</td>
+                    <td>@item.MedicineName</td>
+                    <td>@item.Measurement</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Number</td>
+                    <td><button name="IDeleteId" value="@item.Id"> Sil</button></td>
+
+                </tr>
+
+            }
+        </table>
+
+
+    }
+}
+
+
+@if (ViewBag.AracGerec.Count > 0)
+{
+    using (Ajax.BeginForm("StokTakip", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+    {
+            <table width="70%" align="center" style="margin-top:100px;">
+                <tr>
+                    <td>Türü</td>
+                    <td>Kullanım Alanı</td>
+                    <td align="right">Adeti</td>
+                </tr>
+                @foreach (var item in ViewBag.AracGerec)
+                {
+                    <tr>
+                        <td>@item.Type</td>
+                        <td colspan="2">@item.PlaceOfUse</td>
+                        <td>@item.Number</td>
+                        <td ><button name="ADeleteId" value="@item.Id"> Sil</button></td>
+                    </tr>
+                }
+            </table>
+        }
+}

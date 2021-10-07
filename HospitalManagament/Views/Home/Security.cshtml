@@ -1,0 +1,29 @@
+﻿@{if (Session["Admin"] == "1" || ViewBag.Admin == "1")
+    {
+        <h2 align="center">Güvenlik Personelleri</h2>
+        <table width="50%" align="center" style="margin-top:50px;">
+            <tr>
+                <td align="center">
+
+                    @{
+                        using (Ajax.BeginForm("SecurityAdd", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+                        {
+                            <table width="90%">
+                                <tr><td><input type="text" placeholder="Adınız" name="FirstName" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                <tr><td><input type="text" placeholder="Soyadınız" name="LastName" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                <tr><td><input type="text" placeholder="Tc Numaranız" name="Tc" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                <tr><td align="center"><input type="submit" value="Kayıt Yap" class="AcceptanceNext" /></td></tr>
+
+
+                                @if (ViewBag.Mesaj != null)
+                                {
+                                    <tr><td>@ViewBag.Mesaj</td></tr>
+                                }
+                            </table>
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+     }
+ }

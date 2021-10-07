@@ -1,0 +1,74 @@
+﻿@{
+    if (Session["Admin"] == "1")
+    {
+        <link href="~/Css/MainStil.css" rel="stylesheet" />
+        using (Ajax.BeginForm("DoctorAdd", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+        {
+            <table width="70%" align="center">
+                <tr>
+                    <td>
+                        <div style="margin:10px"> Alanı Seçiniz</div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select class="select" name="Area">
+                            <option>Seçiniz</option>
+                            @foreach (var item in ViewBag.Area)
+                            {
+                                <option value="@item.Area">@item.Area</option>
+
+
+                            }
+
+
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="margin:20px">   Doktorun Adı</div>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Doktor Adı" name="Doctor" class="AcceptanceForm" style="width:100%" />
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="submit" value="Ekle" class="AcceptanceNext" />
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="center"><div style="color:red">@ViewBag.ErrorMesage</div></td>
+                </tr>
+
+
+            </table>
+
+
+        }
+
+    }
+    else
+    {
+
+        <h2>Bu Sayfaya erişim yetkiniz yok.</h2>
+
+    }
+
+
+
+
+}
+

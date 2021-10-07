@@ -1,0 +1,879 @@
+﻿@import url('MainStil.css');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.AdminListe {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+    color: hsl(0deg 0% 35%);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 900;
+    transition: .3s;
+}
+
+
+
+.AdminListeleme {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+}
+
+
+
+body {
+    overflow-x: hidden;
+    background: white;
+}
+.HPersonel {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:200px;
+   
+}
+#UIDuzeni{
+   
+
+}
+#ayrinti_bolumu {
+    width: 100%;
+    height: 650px;
+    
+ 
+}
+
+.li {
+    width: 33%;
+    float: left;
+}
+.bolum{
+    float:left;
+    width:50%;
+    background:white;
+    margin-bottom:100px;
+
+}
+
+.Bilgi {
+    overflow: hidden;
+}
+.li li {
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.Hastalar {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    margin-bottom: 200px;   
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+
+.Alt_Bolum {
+    width: 100px;
+    height: 80px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    float: none;
+    background: #000000;
+}
+
+.Tablo li table {
+    margin: 2%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.Tablo img {
+    width: 85px;
+    border-radius: 100%;
+    margin: 18px;
+    margin-right: 10px;
+}
+
+.Tablo li {
+    width: 100%;
+    list-style-type: none;
+    float: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.Tablo {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    overflow: hidden;
+  
+}
+
+
+.Nameoff {
+    font-size: 1em;
+    color: #9c9c9c;
+    width: 80px;
+}
+
+.Nameon {
+    font-size: 1em;
+    padding: 6px;
+}
+
+
+.searchKey {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+
+.basliklar {
+    font-size: 3em;
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+.Hastalar li {
+    list-style-type: none;
+    height: 130px;
+    border-bottom: 1px solid #9c9c9c;
+}
+
+.Yonelme a {
+    text-decoration: none;
+    color: #616161;
+    font-size: 2em;
+}
+
+.Has-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+    margin: 5px;
+}
+
+    .Has-link:hover {
+        color: #666;
+        text-decoration: none;
+    }
+
+.NewPatient {
+    text-decoration: none;
+}
+
+    .NewPatient button {
+        padding: 8px;
+        width: 150px;
+        border: 0px solid black;
+        color: #fff;
+        background: #22d47c;
+        box-shadow: 0 4px 10px 0 rgb(34 212 124), 0 4px 20px 0 rgb(0 0 0 / 19%)
+    }
+
+        .NewPatient button:hover {
+            color: #fff;
+            background: #22d47c;
+            box-shadow: 0 4px 10px 0 rgb(34 212 124), 0 4px 20px 0 rgb(0 0 0 / 19%)
+        }
+
+        .NewPatient button:focus {
+            border: 0px solid black;
+        }
+        
+.input_name {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.3em;
+}
+
+.HKabulTablo {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.devamAlani {
+    width: 90%;
+    text-align: right;
+    margin-top: 25px;
+}
+
+    .devamAlani button {
+        width: 80px;
+        height: 50px;
+    }
+
+#HKabulTabloAbout {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 50px;
+}
+
+    #HKabulTabloAbout input {
+        text-align: center
+    }
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+    padding-bottom: 20px;
+}
+
+.radio-group label {
+    color: #9a929e;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 17px;
+    width: 32%;
+    text-align: center;
+    border-radius: 4px;
+}
+
+input[type="radio"]#option-one:checked + label {
+    background: #04a504;
+    color: #fff;
+}
+
+input[type="radio"]#option-two:checked + label {
+    background: #e8e800;
+    color: black;
+}
+
+input[type="radio"]#option-three:checked + label {
+    background: red;
+    color: #fff;
+}
+
+input[type=radio]:checked + label {
+    color: #ccc8ce;
+    background: #675f6b;
+}
+
+
+.radio-group {
+    display: inline-block;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    
+}
+
+.select {
+    margin-top: 15px;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 65px;
+    font-size: 1.2em;
+    color: #60666d;
+}
+
+
+.select2 {
+    margin-top: 15px;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 65px;
+    font-size: 1.2em;
+    color: #60666d;
+}
+.container{
+
+   float:none;
+
+}
+.Users_Table {
+    position: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    height: 600px;
+}
+
+.searchKeyVisitor{
+    width:80%;
+    height:60px;
+
+
+
+}
+.AlertDelete{
+  
+
+
+}
+
+.Delete #DeleteLogo {
+    text-align: center
+}
+#DeleteLogo {
+    transition: all 0.5s;
+    margin-right: 0px;
+}
+
+.updatebutton:focus {
+    background: #238e04a3;
+    color:white;
+}
+    .updatebutton {
+   
+    border: 1px solid rgb(0 0 0 / 4%);
+    border-radius: .3rem;
+    width: 80px;
+    height: 80px;
+    font-size: 1.5em;
+    margin-top: 50px;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+.DeleteButton {
+    border: 1px solid rgb(0 0 0 / 4%);
+    border-radius: .3rem;
+    width: 100px;
+    height: 80px;
+    font-size: 1.5em;
+    margin-top: 50px;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+
+#Fsil {
+    transition: all 0.5s;
+    position: inherit;
+    margin-top: -36px;
+    margin-left: 80px;
+}
+
+
+.updatebutton:focus .DeleteView {
+    display: none;
+}
+
+.updatebutton:focus .DeleteView2 {
+    display: block;
+}
+.DeleteView2{display:none}
+
+.searchKeyVisitor {
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-size: 1.2em;
+    word-spacing: 10px;
+    text-indent: 10px;
+}
+
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:100px;
+   
+}
+
+    .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        background:black;
+        height: 13px;
+        border-radius: 50%;
+        background: #fff;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+        .lds-ellipsis div:nth-child(1) {
+            left: 8px;
+            animation: lds-ellipsis1 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(2) {
+            left: 8px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(3) {
+            left: 32px;
+            animation: lds-ellipsis2 0.6s infinite;
+        }
+
+        .lds-ellipsis div:nth-child(4) {
+            left: 56px;
+            animation: lds-ellipsis3 0.6s infinite;
+        }
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+
+
+
+
+body {
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.center {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/** Custom Select **/
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+}
+
+    .custom-select-wrapper select {
+        display: none;
+    }
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0 84px 0 22px;
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 60px;
+    background: #795548;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .custom-select-trigger:after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 10px;
+        height: 10px;
+        top: 50%;
+        right: 25px;
+        margin-top: -3px;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        transform: rotate(45deg) translateY(-50%);
+        transition: all .4s ease-in-out;
+        transform-origin: 50% 0;
+    }
+
+.custom-select.opened .custom-select-trigger:after {
+    margin-top: 3px;
+    transform: rotate(-135deg) translateY(-50%);
+}
+
+.custom-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    min-width: 100%;
+    margin: 15px 0;
+    border: 1px solid #b5b5b5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 1px rgba(0,0,0,.07);
+    background: #fff;
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-15px);
+}
+
+.custom-select.opened .custom-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.custom-options:before {
+    position: absolute;
+    display: block;
+    content: '';
+    bottom: 100%;
+    right: 25px;
+    width: 7px;
+    height: 7px;
+    margin-bottom: -4px;
+    border-top: 1px solid #b5b5b5;
+    border-left: 1px solid #b5b5b5;
+    background: #fff;
+    transform: rotate(45deg);
+    transition: all .4s ease-in-out;
+}
+
+.option-hover:before {
+    background: #f9f9f9;
+}
+
+.custom-option {
+    position: relative;
+    display: block;
+    padding: 0 22px;
+    border-bottom: 1px solid #b5b5b5;
+    font-size: 18px;
+    font-weight: 600;
+    color: #b5b5b5;
+    line-height: 47px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+    .custom-option:first-of-type {
+        border-radius: 4px 4px 0 0;
+    }
+
+    .custom-option:last-of-type {
+        border-bottom: 0;
+        border-radius: 0 0 4px 4px;
+    }
+
+    .custom-option:hover,
+    .custom-option.selection {
+        background: #f9f9f9;
+    }
+
+
+.AcceptanceForm {
+    width: 80%;
+    height: 60px;
+    padding: 10px;
+ 
+    border: 1px solid #9c9c9c;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+.AcceptanceTable {
+    margin-top:50px;
+    width: 100%;
+    margin-bottom: 200px;
+   
+}
+.AcceptanceFont {
+    margin-top:30px;
+    font-size: 1.5em;
+}
+
+.AcceptanceNext {
+    border: 1px solid rgb(0 0 0 / 4%);
+    border-radius: .3rem;
+    width: 20%;
+    color: white;
+    height: 80px;
+
+   
+    font-size: 1.5em;
+    margin-top: 50px;
+    background: #3551f5;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.bolum_Windows {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background: #3551f5;
+    border: 6px solid #ffffff;
+    font-size: 1.3em;
+    color: white;
+    text-align: center;
+    margin-top: -70px;
+}
+.bolumBar {
+    background: #c5c5c5;
+    width: 90%;
+    height: 20px;
+    border-radius: 10px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.bolumBaric {
+    background: #3551f5;
+    position: unset;
+    width: 0%;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: -13px;
+}
+.TblRandevu tr td div {
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+    background: #fdfdfd;
+    font-weight: 600;
+    text-align:center;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+
+}
+.btnRandevu {
+    padding: 20px;
+    margin: 20px;
+    width: 95%;
+    background: #fdfdfd;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

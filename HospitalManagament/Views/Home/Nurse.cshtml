@@ -1,0 +1,69 @@
+﻿
+@{
+    if (Session["Admin"] == "1")
+        {
+             using (Ajax.BeginForm("NurseAdd", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "ayrinti_bolumu" }))
+                {
+                    <table width="50%" align="center">
+                        <tr>
+                            <td>
+                                <select class="select" name="Doctor" style="margin-bottom:50px;">
+                                    <option>Doktorunuzu Seçiniz</option>
+                                    @foreach (var item in ViewBag.Doctor)
+                                    {
+                                        <option value="@item.Doctor">@item.Doctor</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Adınız
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="FirstName" class="AcceptanceForm" style="width:100%;margin-bottom:20px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Soyadınız
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="LastName" class="AcceptanceForm" style="width: 100%; margin-bottom: 20px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Ekle" class="AcceptanceForm" style="width: 100%; background: #0066ff; color: #fff; margin-bottom: 20px;" />
+                            </td>
+                        </tr>
+                        @if (ViewBag.Mesaj != null)
+                        {
+                            <tr>
+                                <td>
+                                    <font size="4em">@ViewBag.Mesaj</font>
+                                </td>
+                            </tr>
+
+                        }
+
+
+                    </table>
+                }
+            }
+        
+        else
+        {
+
+            <h2>Bu Sayfaya erişim yetkiniz yok.</h2>
+
+        }
+
+
+
+
+    }

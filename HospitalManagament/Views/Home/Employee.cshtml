@@ -1,0 +1,104 @@
+﻿
+
+@{
+    if (ViewBag.Admin == "1")
+    {
+        Session["Admin"] = "1";
+
+        <script>
+
+            window.location.href = "https://localhost:44398/Home/Admin";
+
+
+        </script>
+        //  @Html.Action("Admin", "Home")
+
+
+    }
+    else
+    {
+
+        if (Session["Admin"] == "1")
+        {
+
+            <script>
+
+                window.location.href = "https://localhost:44398/Home/Admin";
+
+
+            </script>
+
+        }
+        else
+        {
+
+
+            <table width="100%" align="center" style="margin-top:100px;">
+                <tr>
+                    <td align="center">
+
+                        @{
+                            using (Ajax.BeginForm("EmployeeGiris", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+                            {
+                                <table width="90%">
+                                    <tr><td><input type="text" placeholder="Tc Numaranız" name="Tc" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Şifreniz" name="Password" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Key" name="Key" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td align="center"><input type="submit" value="Giriş Yap" class="AcceptanceNext" /></td></tr>
+                                    @if (ViewBag.GirisHata != null)
+                                    {
+                                        <tr><td>@ViewBag.GirisHata</td></tr>
+                                    }
+                                </table>
+                            }
+                        }
+                    </td>
+                    <td width="10%" align="center"> <div style="height:500px;width:1px;background:#000"></div></td>
+                    <td align="center">
+                        @{
+                            using (Ajax.BeginForm("EmployeeKayit", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "IndexBook" }))
+                            {
+                                <table width="90%">
+                                    <tr><td><input type="text" placeholder="Adınız" name="FirstName" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Soyadınız" name="LastName" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Tc Numarası" name="Tc" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Şifre" name="Password" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Key" name="Key" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td><input type="password" placeholder="Kayıt Kodunuz" name="Kod" style="margin-bottom:25px;width:100%" class="AcceptanceForm" /></td></tr>
+                                    <tr><td align="center"><input type="submit" value="Kayıt Ol" class="AcceptanceNext" /></td></tr>
+                                    @if (ViewBag.Hata != null)
+                                    {
+                                        <tr><td>@ViewBag.Hata</td></tr>
+
+                                    }
+                                    @if (ViewBag.Kayit != null)
+                                    {
+                                        <tr><td>@ViewBag.Kayit</td></tr>
+
+                                    }
+                                </table>
+                            }
+
+
+                        }
+
+
+
+
+
+
+                    </td>
+                </tr>
+            </table>
+
+
+
+        }
+
+    }
+
+
+}
+
+
+

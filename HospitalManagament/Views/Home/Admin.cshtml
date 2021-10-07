@@ -1,0 +1,109 @@
+﻿
+
+@{if (Session["Admin"] == "1" || ViewBag.Admin=="1")
+    {
+        <a href="Home/Kod" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr>
+                <td width="20%">
+                    <i class="fa fa-qrcode" aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center">
+                    <div class="AdminListe">KOD ÜRET</div>
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="Home/Doctor" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr><td width="20%"><i class="fa fa-user-md" aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center"><div class="AdminListe">DOKTOR</div></td></tr>
+            </table>
+        </a>
+        <a href="Home/AreaAdd" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr><td width="20%"><i class="fa fa-tag" aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center"><div class="AdminListe">ALAN </div></td></tr>
+            </table>
+        </a>
+        <a href="Home/Nurse" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr><td width="20%"><i class="fa fa-user-md" aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center"><div class="AdminListe">HEMŞİRE </div></td></tr>
+            </table>
+        </a> <a href="Home/Security" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr><td width="20%"><i class="fa fa-user-secret aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center"><div class="AdminListe">GÜVENLİK PORSONELİ</div></td></tr>
+            </table>
+        </a> <a href="" style="text-decoration:none">
+            <table width="50%" align="center" class="AdminListeleme">
+                <tr><td width="20%"><i class="fa fa-outdent" aria-hidden="true" style="font-size:4.4em;padding:10px"></i></td><td align="center"><div class="AdminListe">DİĞER PORSONELLER</div></td></tr>
+            </table>
+        </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    else
+    {
+        <h2>Böyle bir sayfa mevcut değil</h2>
+    }
+}
